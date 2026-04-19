@@ -1,0 +1,9 @@
+title: Siarhei Baradulia
+description: "Writing about AI evaluation, agentic QA infrastructure, and the craft of quality engineering"
+header:
+  - page: pages/index.md
+    title: Blog
+    home: true
+  - pages/about.md
+toc: []
+footer: []

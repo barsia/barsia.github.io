@@ -1,0 +1,17 @@
+# Generated output
+/build/
+
+# IDE
+/.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local transcript dumps
+/transcripts/
+.codocation/

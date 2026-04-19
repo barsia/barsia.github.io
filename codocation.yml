@@ -1,0 +1,14 @@
+sites:
+  blog:
+    type: blog
+locales:
+  en:
+    title: English
+deploy:
+  default: gh-pages
+build:
+  output: dist
+  cleanUrls: true
+web:
+  branding:
+    logo: images/logo-blog.png

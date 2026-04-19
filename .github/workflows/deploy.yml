@@ -1,0 +1,72 @@
+name: Deploy blog to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  # Pin the Codocation CLI version. Bump this to upgrade.
+  # Must match a tag in https://github.com/codocation/codocation/releases
+  CLI_TAG: cli-v0.1.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # The Codocation CLI ships as a fat JAR (codocation-cli.jar); it needs a JVM.
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Download Codocation CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ env.CLI_TAG }}
+        run: |
+          set -e
+          mkdir -p .tools
+          gh release download "$TAG" \
+            -R codocation/codocation \
+            -p 'codocation-cli.jar' \
+            -D .tools
+          ls -la .tools
+
+      - name: Generate site
+        run: |
+          set -e
+          java -jar .tools/codocation-cli.jar build --root "$GITHUB_WORKSPACE" --out _site
+          # CLI lays the site out under _site/<siteId> ("blog"); the Pages artifact takes the
+          # CONTENTS of that subtree so index.html is served at the domain root.
+          test -d _site/blog || { echo "site not generated at _site/blog"; exit 1; }
+          ls -la _site/blog | head
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/blog
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
