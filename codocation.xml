@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codocation xmlns="https://codocation.com/schema/codocation"
+            name="blog">
+  <instances>
+    <instance id="blog" type="blog">
+      <locales>
+        <locale code="en" title="English" default="true"/>
+      </locales>
+    </instance>
+  </instances>
+</codocation>

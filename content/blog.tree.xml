@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree
+    xmlns="https://codocation.com/schema/tree"
+    title="Siarhei's Blog"
+    home-page="index.md">
+
+  <header>
+    <topic file="about.md"/>
+
+  </header>
+
+  <toc>
+    <topic file="index.md"/>
+    <group title="2026" expanded="true">
+      <topic file="posts/2026-04-08-1823-welcome.md"/>
+    </group>
+  </toc>
+
+  <footer>
+    <topic file="about.md"/>
+
+  </footer>
+</tree>
