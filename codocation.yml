@@ -1,0 +1,26 @@
+sites:
+  docs:
+    title: My Docs
+    slug: /
+    theme: docs
+    baseUrl: https://docs.example.com
+    description: Documentation for my project.
+deploy:
+  default: cloudflare
+  # `cloudflare:` and `ghPages:` blocks are written by `codocation auth`
+  # the first time you deploy. Until then `codocation deploy` will
+  # launch the setup wizard.
+build:
+  output: dist
+  cleanUrls: true
+  assetsDir: images
+validation:
+  brokenLinks: error
+  brokenAnchors: error
+  invalidFrontmatter: error
+  missingFrontmatter: warn
+  treeOrphan: info
+  treeBrokenRef: error
+  treeDuplicateRef: warn
+  treeMalformed: error
+  unknownFrontmatterKeys: warn

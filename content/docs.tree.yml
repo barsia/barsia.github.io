@@ -1,0 +1,8 @@
+header:
+  - page: pages/index.md
+    title: Blog
+    home: true
+  - pages/about.md
+toc:
+  - pages/posts/2026-04-08-1823-welcome.md
+footer: []
