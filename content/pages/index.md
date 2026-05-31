@@ -1,7 +1,8 @@
 ---
 layout: plain
-title: Siarhei's Blog
+title: stdout
 description: Notes on quality engineering, AI testing, vibe coding, and modern software development.
+date: none
 ---
 
 {{posts}}

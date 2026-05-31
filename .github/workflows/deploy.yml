@@ -17,7 +17,7 @@ permissions:
 env:
   # Pin the Codocation CLI version. Bump this to upgrade.
   # Must match a tag in https://github.com/codocation/codocation/releases
-  CLI_TAG: cli-v0.1.1
+  CLI_TAG: cli-v0.1.0
 
 jobs:
   build:
