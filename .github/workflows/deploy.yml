@@ -54,15 +54,14 @@ jobs:
         run: |
           set -e
           ".tools/codocation-cli-${CLI_TAG}/bin/codocation" build --root "$GITHUB_WORKSPACE" --out _site
-          # CLI lays the site out under _site/<siteId> ("blog"); the Pages artifact takes the
-          # CONTENTS of that subtree so index.html is served at the domain root.
-          test -d _site/blog || { echo "site not generated at _site/blog"; exit 1; }
-          ls -la _site/blog | head
+          # The CLI writes this single-site build directly into _site.
+          test -f _site/index.html || { echo "site not generated at _site"; exit 1; }
+          ls -la _site | head
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site/blog
+          path: _site
 
   deploy:
     needs: build
