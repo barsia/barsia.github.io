@@ -1,7 +1,8 @@
 ---
-title: Quality Engineering & AI Evaluation
-description: Writing about quality engineering, AI evaluation, agentic QA infrastructure, and developer tooling.
-date: none
+title:  Quality Engineering in AI Products
+description: Blog with notes about test strategy, automation infrastructure, AI-assisted QA, and developer tools.
+date-published: none
+ai-export: false
 ---
 
 {% posts %}
