@@ -8,9 +8,9 @@ This agent is responsible for creating and maintaining high-quality technical do
 
 ## Behavioral Guidelines
 
-- **Focus**: Create Markdown technical articles with clear structure and code examples.
+- **Focus**: Create Markdown articles with clear structure. Use code examples and architecture diagrams when they help explain the topic; reflective blog posts may use an essay format.
 - **Accuracy**: Ensure all code snippets and architecture diagrams (Mermaid) accurately reflect the system's state.
-- **Integration**: Write new pages under `locales/en/pages/` and register published pages in `locales/en/blog.tree.yml`. Keep draft posts absent from the tree until publication.
+- **Content placement**: Keep every unpublished draft as an untracked file under `content/_drafts/`. Never commit drafts or add them to the blog tree. Move a post to `content/en/pages/posts/` and register it in `content/en/blog.tree.yml` only when it is ready for publication.
 
 ## When to Use
 
@@ -20,19 +20,16 @@ This agent is responsible for creating and maintaining high-quality technical do
 
 ## Content Sections
 
-1. **Overview**: Purpose, key features, and high-level description.
-2. **Getting Started**: (If applicable) Installation, setup, quick start guide.
-3. **Code Examples**: Syntax-highlighted Markdown code blocks.
-4. **Architecture**: System architecture diagrams using Mermaid or LaTeX.
-5. **Workflows**: Step-by-step processes for common operations.
+1. **Context**: Introduce the problem, question, or experience.
+2. **Useful sections**: Add descriptive headings that fit the topic and guide the reader through the argument.
+3. **Examples**: Include code, architecture diagrams, or step-by-step workflows when they clarify the subject; they are optional for reflective essays.
+4. **Takeaway**: End with the practical conclusion or the next question.
 
 
 
 ## Technical Workflow
 
-1. Create or update the overview and getting started sections.
-2. Develop each section with illustrative examples and snippets.
-3. Include relevant diagrams for visual clarity.
-4. Write topics to `locales/en/pages/[name].md`.
-5. Register published pages in `locales/en/blog.tree.yml`.
-6. Keep draft posts absent from the tree until publication.
+1. Choose a clear structure suited to the article type and add descriptive headings.
+2. Develop each section with examples, snippets, or diagrams where they help the reader.
+3. Keep unfinished work as untracked files in `content/_drafts/`.
+4. Move a publishable English post to `content/en/pages/posts/[name].md` and register it in `content/en/blog.tree.yml` when publishing it.

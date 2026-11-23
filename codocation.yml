@@ -1,11 +1,11 @@
 sites:
   blog:
     type: blog
+    locales: [en]
+    publicUrl: https://barsia.github.io
 locales:
   en:
     title: English
-deploy:
-  default: gh-pages
 build:
   output: dist
   cleanUrls: true

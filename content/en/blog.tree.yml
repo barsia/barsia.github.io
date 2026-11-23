@@ -6,4 +6,5 @@ header:
     home: true
   - pages/about.md
 toc: []
-footer: []
+footer:
+  nav: []

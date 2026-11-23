@@ -5,25 +5,33 @@ Built with Codocation IDE.
 ## Getting Started
 
 1. Open the project in Codocation IDE.
-2. Edit English pages in `locales/en/pages/`.
-3. Update the English navigation and page tree in `locales/en/blog.tree.yml`.
-4. Use `codocation.yml` for the site, locale, deployment, and build configuration.
+2. Edit English pages in `content/en/pages/`.
+3. Update the English navigation and page tree in `content/en/blog.tree.yml`.
+4. Use `codocation.yml` for the site, locale, and build configuration. Deployment is handled by
+   `.github/workflows/deploy.yml`, not by `codocation.yml`.
 
 ## Structure
 
 ```text
 .
 ├── codocation.yml
-└── locales/
+├── definitions/
+│   └── categories.yml
+└── content/
     └── en/
         ├── blog.tree.yml
+        ├── definitions/
+        │   └── categories.yml
+        ├── images/
         └── pages/
             ├── index.md
             ├── about.md
             └── posts/
 ```
 
-Each locale has its own directory under `locales/`, with a locale-specific `blog.tree.yml` and Markdown pages. Published pages are registered in that locale's tree; draft posts remain absent from the tree until publication.
+Each locale has its own directory under `content/`, with a locale-specific `blog.tree.yml` and Markdown pages. `definitions/` at the root holds each category's stable id; the per-locale `definitions/` holds its translated name. Pages are registered in that locale's tree; a post only builds once it is both registered there and marked `status: final`.
+
+Unpublished drafts stay as untracked files in `content/_drafts/`. They are not part of a locale tree; move a post into `content/en/pages/posts/` and add it to `content/en/blog.tree.yml` when publishing it.
 
 ## Learn More
 

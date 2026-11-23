@@ -1,6 +1,7 @@
 ---
 title: About Me
-seo-description: Siarhei Baradulia is a Quality Engineer at JetBrains who designs testing approaches, builds automation frameworks, and evaluates AI systems.
+description: Siarhei Baradulia is a Quality Engineer at JetBrains who designs testing approaches, builds automation frameworks, and evaluates AI systems.
+date: none
 ---
 
 I'm Siarhei Baradulia, an Amsterdam-based Quality Engineer at JetBrains. I design systematic approaches to testing and build automation frameworks—increasingly for AI agents and the systems around them—that help teams see what works, what doesn't, and what needs attention before release.
@@ -13,7 +14,7 @@ My work at JetBrains has taken me from testing a plugin for technical writers an
 
 In my own projects, I evaluate AI systems using benchmarks to assess their results.
 
-I'm also the creator of [SpeQA](https://plugins.jetbrains.com/plugin/31268-speqa--test-management-system), an IDE-native test management system for working with test cases and other QA artifacts directly in the IDE, with versioning and collaboration through Git.
+I'm also the creator of [SpeQA](https://plugins.jetbrains.com/plugin/36246-speqa--test-management/), an IDE-native test management system for working with test cases and other QA artifacts directly in the IDE, with versioning and collaboration through Git.
 
 On this blog, I write about quality engineering, AI-assisted development, AI agent workflows, and developer tools.
 
