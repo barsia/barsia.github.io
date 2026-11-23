@@ -26,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # The Codocation CLI ships as a fat JAR (codocation-cli.jar); it needs a JVM.
+      # Codocation CLI is a Gradle application distribution; its launcher and dependency JARs must stay together
       - name: Setup JDK 21
         uses: actions/setup-java@v4
         with:
@@ -42,14 +42,18 @@ jobs:
           mkdir -p .tools
           gh release download "$TAG" \
             -R codocation/codocation \
-            -p 'codocation-cli.jar' \
+            -p 'codocation-cli.zip' \
             -D .tools
+          unzip -q .tools/codocation-cli.zip -d .tools
+          CLI_HOME=".tools/codocation-cli-$TAG"
+          test -f "$CLI_HOME/lib/codocation-cli.jar"
+          chmod +x "$CLI_HOME/bin/codocation"
           ls -la .tools
 
       - name: Generate site
         run: |
           set -e
-          java -jar .tools/codocation-cli.jar build --root "$GITHUB_WORKSPACE" --out _site
+          ".tools/codocation-cli-${CLI_TAG}/bin/codocation" build --root "$GITHUB_WORKSPACE" --out _site
           # CLI lays the site out under _site/<siteId> ("blog"); the Pages artifact takes the
           # CONTENTS of that subtree so index.html is served at the domain root.
           test -d _site/blog || { echo "site not generated at _site/blog"; exit 1; }
